@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ztree.all.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var setting={
+                check: {
+                    enable: false,
+                    chkStyle: "checkbox"//显示 checkbox 选择框，默认checkbox可选择值radio
+                }
+            };
+            var zTreeNodes=[
+                {"name":"北京","open":true,children:[
+                        {"name":"东城区"},
+                        {"name":"朝阳区"}
+                    ]},//open:true表示默认展开
+                {"name":"重庆","open":true,children:[
+                        {"name":"巴南区",children:[
+                                {"name":"南泉"},
+                                {"name":"界石"}
+                            ]},
+                        {"name":"渝中区"}
+                    ]}
+            ];
+            var city = $.fn.zTree.init($("#tree"), setting, zTreeNodes);
+//第一个参数为zTree的DOM容器，第二个为zTree设置详情可见官网api,第三个为zTree的节点数据
+        });
+    </script>
+</head>
+<body>
+<ul id="tree" class="ztree" style="width:230px; overflow:auto;"></ul>
+</body>
+</html>
